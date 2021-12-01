@@ -6,6 +6,9 @@ const LEFT = 'LEFT'
 const RIGHT = 'RIGHT'
 const mergedTilesId = new Set()
 const renderDelay = 100
+
+let startX
+let startY
 let score = 0
 let moved = false
 let lock = false
@@ -325,6 +328,34 @@ document.addEventListener('keydown', event => {
         case 'ArrowRight':
             move(RIGHT)
             break
+    }
+
+})
+
+$field.addEventListener('touchstart', event => {
+    startX = event.changedTouches[0].clientX
+    startY = event.changedTouches[0].clientY
+})
+
+$field.addEventListener('touchend', event => {
+
+    if (lock) return
+
+    const endX = event.changedTouches[0].clientX
+    const endY = event.changedTouches[0].clientY
+
+    if (Math.abs(startX - endX) > Math.abs(startY - endY)) {
+        if (startX < endX) {
+            move(RIGHT)
+        } else {
+            move(LEFT)
+        }
+    } else {
+        if (startY > endY) {
+            move(UP)
+        } else {
+            move(DOWN)
+        }
     }
 
 })
