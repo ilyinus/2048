@@ -15,7 +15,7 @@ const prepareField = () => {
     const screenWidth = document.body.clientWidth
     const screenHeight = document.body.clientHeight / document.querySelectorAll('.screen').length
     const min = Math.min(screenHeight, screenWidth)
-    const size = min * 0.60 // field size
+    const size = min * (screenHeight > screenWidth ? 0.9 : 0.6) // field size
 
     fieldPadding = size * 0.01
 
