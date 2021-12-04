@@ -10,7 +10,8 @@ const sizeButtonsGroup = document.querySelector('.button-size-group')
 
 export const scrollScreen = screenNumber => {
     screens.forEach(screen => {
-        screen.style.position = ''
+        screen.style.position = 'relative'
+        screen.style.zIndex = '0'
         screen.style.marginTop = '0'
     })
 
@@ -18,7 +19,10 @@ export const scrollScreen = screenNumber => {
 
     setTimeout(() => {
         for (let i = 0; i < screens.length; i++) {
-            if (i + 1 !== screenNumber) screens[i].style.position = 'absolute'
+            if (i + 1 !== screenNumber) {
+                screens[i].style.zIndex = '-1'
+            }
+            screens[i].style.position = 'absolute'
         }
     }, 500)
 }

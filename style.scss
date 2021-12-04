@@ -80,11 +80,7 @@ body {
         width: 100%;
         padding-top: 3rem;
         box-sizing: border-box;
-        transition: 500ms ease-in;
-
-        &.up {
-            margin-top: -100vh;
-        }
+        transition: margin-top 500ms ease-in;
 
         &.align-top {
             justify-content: start;

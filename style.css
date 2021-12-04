@@ -127,12 +127,8 @@ body {
   padding-top: 3rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-transition: 500ms ease-in;
-  transition: 500ms ease-in;
-}
-
-.wrapper .screen.up {
-  margin-top: -100vh;
+  -webkit-transition: margin-top 500ms ease-in;
+  transition: margin-top 500ms ease-in;
 }
 
 .wrapper .screen.align-top {
