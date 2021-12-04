@@ -1,4 +1,4 @@
-import { fieldSize, cellSize, cellMargin, fieldPadding, screens } from "./index.js"
+import { fieldSize, cellSize, cellMargin, fieldPadding, scrollScreen } from "./index.js"
 
 const UP = 'UP'
 const DOWN = 'DOWN'
@@ -95,7 +95,7 @@ const move = async direction => {
         moved = false
 
         if (isGameOver()) {
-            screens[1].classList.add('up')
+            scrollScreen(3)
             return
         }
 

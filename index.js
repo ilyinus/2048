@@ -8,6 +8,21 @@ export let fieldPadding
 export const screens = document.querySelectorAll('.screen')
 const sizeButtonsGroup = document.querySelector('.button-size-group')
 
+export const scrollScreen = screenNumber => {
+    screens.forEach(screen => {
+        screen.style.position = ''
+        screen.style.marginTop = '0'
+    })
+
+    for (let i = 1; i < screenNumber; i++) screens[i - 1].style.marginTop = '-100vh'
+
+    setTimeout(() => {
+        for (let i = 0; i < screens.length; i++) {
+            if (i + 1 !== screenNumber) screens[i].style.position = 'absolute'
+        }
+    }, 500)
+}
+
 const prepareField = () => {
     const $field = document.querySelector('.field')
     $field.innerHTML = ''
@@ -49,15 +64,13 @@ sizeButtonsGroup.addEventListener('click', event => {
 })
 
 document.querySelector('.btn-primary').addEventListener('click', () => {
-    screens[0].classList.add('up')
+    scrollScreen(2)
     prepareField()
     startGame()
 })
 
 document.querySelectorAll('.btn-menu').forEach(btn => {
     btn.addEventListener('click', () => {
-        screens.forEach(screen => {
-            screen.classList.remove('up')
-        })
+        scrollScreen(1)
     })
 })
