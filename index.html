@@ -11,7 +11,7 @@
 
 <body>
     <div class="wrapper">
-        <div class="screen">
+        <div class="screen" style="position: absolute; z-index: 0;">
             <div>
                 <div class="button-size-group">
                     <button class="btn">2x2</button>
@@ -22,12 +22,12 @@
             </div>
             <button class="btn btn-primary">Start game</button>
         </div>
-        <div class="screen align-top" style="position: absolute;">
+        <div class="screen align-top" style="position: absolute; z-index: -1;">
             <button class="btn btn-menu">MENU</button>
             <h1 class="score"></h1>
             <div class="field"></div>
         </div>
-        <div class="screen" style="position: absolute;">
+        <div class="screen" style="position: absolute; z-index: -1;">
             <h1>Game over</h1>
             <h1 class="score"></h1>
             <button class="btn btn-menu">MENU</button>
